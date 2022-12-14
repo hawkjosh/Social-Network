@@ -1,0 +1,18 @@
+[
+  {
+    "postText": "This is a test post from Cat!",
+    "postAuthor": "Cat"
+  },
+  {
+    "postText": "This is a test post from Eric!",
+    "postAuthor": "Eric"
+  },
+  {
+    "postText": "This is a test post from Josh!",
+    "postAuthor": "Josh"
+  },
+  {
+    "postText": "This is a test post from Kimberly!",
+    "postAuthor": "Kimberly"
+  }
+]

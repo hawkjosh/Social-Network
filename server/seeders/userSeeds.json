@@ -1,0 +1,26 @@
+[
+  {
+    "username": "Cat",
+    "email": "cat@email.com",
+    "password": "password1234!",
+    "github": "coderGal1"
+  },
+  {
+    "username": "Eric",
+    "email": "eric@email.com",
+    "password": "password1234!",
+    "github": "coderGuy1"
+  },
+  {
+    "username": "Josh",
+    "email": "josh@email.com",
+    "password": "password1234!",
+    "github": "coderGuy2"
+  },
+  {
+    "username": "Kimberly",
+    "email": "kimberly@email.com",
+    "password": "password1234!",
+    "github": "coderGal2"
+  }
+]
