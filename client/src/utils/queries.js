@@ -50,16 +50,3 @@ export const QUERY_CURR_USER = gql`
     }
   }
 `
-
-export const QUERY_FRIENDS = gql`
-  query friends($username: String!) {
-    user(username: $username) {
-      friends {
-        _id
-        username
-        email
-        github
-      }
-    }
-  }
-`

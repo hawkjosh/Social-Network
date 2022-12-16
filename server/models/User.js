@@ -1,6 +1,6 @@
-import { model, Schema } from 'mongoose'
-import bcrypt from 'bcrypt'
-import isEmail from 'validator/lib/isEmail'
+const { Schema, model } = require('mongoose')
+const bcrypt = require('bcrypt')
+const isEmail = require('validator/lib/isEmail')
 
 const userSchema = new Schema({
   username: {
@@ -25,18 +25,6 @@ const userSchema = new Schema({
     minlength: 5
   },
   posts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Post'
-    }
-  ],
-  friends: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }
-  ],
-  favorites: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Post'

@@ -1,6 +1,6 @@
-import { AuthenticationError } from 'apollo-server-express'
-import { User, Post } from '../models'
-import { signToken } from '../utils/auth'
+const { AuthenticationError } = require('apollo-server-express')
+const { User, Post } = require('../models')
+const { signToken } = require('../utils/auth')
 
 const resolvers = {
   Query: {
@@ -21,17 +21,10 @@ const resolvers = {
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {}
-      return await Post.find(params).populate('comments')
+      return await Post.find(params)
     },
     post: async (parent, { _id }) => {
       return await Post.findById({ _id })
-    },
-    friends: async (parent, { username }) => {
-      const params = username ? { username } : {}
-      return await User.find(params).populate('friends')
-    },
-    favorites: async (parent, { _id }) => {
-      return await User.find({ _id }).populate('favorites')
     }
   },
   Mutation: {
@@ -70,60 +63,8 @@ const resolvers = {
     },
     removePost: async (parent, { postId }) => {
       return await Post.findOneAndDelete({ _id: postId })
-    },
-    addComment: async (parent, { postId, commentText, commentAuthor }) => {
-      return Post.findOneAndUpdate(
-        { _id: postId },
-        { $addToSet: { comments: { commentText, commentAuthor } }},
-        {
-          new: true,
-          runValidators: true
-        }
-      )
-    },
-    updateComment: async (parent, { postId, commentId, commentText }) => {
-      return await Post.findOneAndUpdate(
-        { _id: postId, 'comments._id': commentId },
-        { 'comments.$.commentText': commentText },
-        { new: true }
-      )
-    },
-    removeComment: async (parent, { postId, commentId }) => {
-      return await Post.findOneAndUpdate(
-        { _id: postId },
-        { $pull: { comments: { _id: commentId } } },
-        { new: true }
-      )
-    },
-    addFriend: async (parent, { userId, friendId }) => {
-      return await User.findOneAndUpdate(
-        { _id: userId },
-        { $push: { friends: friendId } },
-        { new: true }
-      )
-    },
-    removeFriend: async (parent, { userId, friendId }) => {
-      const friend = await User.findOne({ _id: friendId })
-      return await User.findOneAndUpdate(
-        { _id: userId },
-        { $pull: { friends: friend._id } }
-      )
-    },
-    addFavorite: async (parent, { postId }, context) => {
-      const post = await Post.findOne({ _id: postId })
-      return await User.findOneAndUpdate(
-        { _id: context.user._id },
-        { $push: { favorites: post._id } }
-      )
-    },
-    removeFavorite: async (parent, { userId, postId }) => {
-      const favorite = await Post.findOne({ _id: postId })
-      return await Post.findOneAndUpdate(
-        { _id: userId },
-        { $pull: { favorites: favorite._id } }
-      )
     }
   }
 }
 
-export default resolvers
+module.exports = resolvers

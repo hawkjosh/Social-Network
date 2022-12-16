@@ -1,9 +1,9 @@
-import { once } from '../config/connection'
-import { User, Post } from '../models'
-import userSeeds from './userSeeds.json'
-import postSeeds from './postSeeds.json'
+const db = require('../config/connection')
+const { User, Post } = require('../models')
+const userSeeds = require('./userSeeds.json')
+const postSeeds = require('./postSeeds.json')
 
-once('open', async () => {
+db.once('open', async () => {
   await User.deleteMany({})
   await Post.deleteMany({})
 

@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express'
+const { gql } = require('apollo-server-express')
 
 const typeDefs = gql`
   type User {
@@ -8,25 +8,12 @@ const typeDefs = gql`
     github: String
     password: String!
     posts: [Post]
-    friends: [Friend]
   }
   type Post {
     _id: ID!
     postText: String!
     postAuthor: String!
     createdAt: String!
-    comments: [Comment]
-  }
-  type Comment {
-    _id: ID!
-    commentText: String!
-    commentAuthor: String!
-    createdAt: String!
-  }
-  type Friend {
-    _id: ID!
-    username: String!
-    github: String
   }
   type Auth {
     token: ID!
@@ -37,9 +24,7 @@ const typeDefs = gql`
     user(username: String!): User
     posts(username: String): [Post]
     post(_id: ID!): Post
-    me: User
-    friends(username: String!): User
-    favorites(_id: ID!): User
+    currUser: User
   }
   type Mutation {
     addUser(
@@ -52,14 +37,7 @@ const typeDefs = gql`
     addPost(postText: String!): Post
     updatePost(_id: ID!, postText: String!): Post
     removePost(postId: ID!): Post
-    addComment(postId: ID!, commentText: String!, commentAuthor: String!): Post
-    updateComment(postId: ID!, commentId: ID!, commentText: String!): Post
-    removeComment(postId: ID!, commentId: ID!): Post
-    addFriend(userId: ID!, friendId: ID!): User
-    removeFriend(userId: ID!, friendId: ID!): User
-    addFavorite(postId: ID!): User
-    removeFavorite(userId: ID!, postId: ID!): Post
   }
 `
 
-export default typeDefs
+module.exports = typeDefs

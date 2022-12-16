@@ -1,4 +1,4 @@
-import User from './User'
-import Post from './Post'
+const User = require('./User')
+const Post = require('./Post')
 
-export default { User, Post }
+module.exports = { User, Post }
