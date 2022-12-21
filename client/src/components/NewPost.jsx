@@ -54,64 +54,34 @@ export default function NewPost() {
 		}
 	}
 
-	// styling
-	const normalKanit = {
-		fontFamily: `'Kanit', sans-serif`,
-		fontWeight: '200'
-	}
-
-	const boldKanit = {
-		fontFamily: `'Kanit', sans-serif`,
-		fontWeight: '400',
-		fontSize: '20px'
-	}
-
 	return (
-		<div className='min-h-screen flex'>
-			<div className='bg-zinc-700 flex-grow'>
-				<div className='container mx-auto bg-zinc-800 rounded-xl shadow border p-8 sm-m-10 m-10 w-75'>
-					<h1
-						style={boldKanit}
-						className='text-2xl font-bold text-green-400'
-						>
+		<div style={{ display: 'flex', minHeight: '100vh' }}>
+			<div style={{ flexGrow: 1, backgroundColor: 'rgb(63 63 70)' }}>
+				<div style={{ width: '95%', marginLeft: 'auto', marginRight: 'auto', marginTop: '2.5rem', backgroundColor: 'rgb(39 39 42)', borderRadius: '0.75rem', borderWidth: '1px', padding: '2rem' }}>
+					<h1 style={{ fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', color: 'rgb(74 222 128)' }}>
 						New Post
 					</h1>
 
 					{Auth.loggedIn() ? (
-						<form
-							className='mt-8 max-w-75'
-							onSubmit={handleFormSubmit}
-							>
-							<div className='grid grid-cols-1 gap-6 h-auto'>
+						<form style={{ marginTop: '2rem' }} onSubmit={handleFormSubmit}>
+							<div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, minmax(0, 1fr))', gap: '1.5rem', height: 'auto' }}>
 								<textarea
 									name='postText'
 									type='text'
-									className='form-input mt-1 flex w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 h-40'
 									rows='6'
 									value={postText}
 									placeholder='Type your post here'
 									onChange={handleChange}
-									style={normalKanit}
+									className='new-post-text'
 								/>
 							</div>
-							<div className='grid grid-cols-1 gap-6'>
-								<button
-									style={normalKanit}
-									className='bg-sky-500 hover:bg-sky-400 active:bg-sky-600 rounded-md text-white justify-self-center focus:bg-sky-600 m-4 w-24 sm-w-40 h-10'
-									type='submit'
-									>
-									Add Post
-								</button>
+							<div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, minmax(0, 1fr))', gap: '1.5rem' }}>
+								<button type='submit' className='new-post-btn'>Add Post</button>
 							</div>
-							{error && (
-								<div className='grid grid-cols-1 my-3 bg-red-700 text-white p-3'>
-									{error.message}
-								</div>
-							)}
 						</form>
 					) : (
 						<p>
-							You need to log in!
+							You need to be logged in!
 							Please{' '}<Link to='/login'>login</Link> or{' '}<Link to='/register'>register.</Link>
 						</p>
 					)}

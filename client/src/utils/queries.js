@@ -35,7 +35,7 @@ export const QUERY_POSTS = gql`
   }
 `
 
-export const QUERY_CURR_USER = gql`
+export const QUERY_CURRUSER = gql`
   query currUser {
     currUser {
       _id

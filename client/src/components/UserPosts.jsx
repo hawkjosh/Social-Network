@@ -1,32 +1,26 @@
 import React from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import PostListUtil from '../utils/profileListUtil';
-import { QUERY_CURR_USER, QUERY_USER } from '../utils/queries';
+import PostListUtil from '../utils/ProfileListUtil';
+import { QUERY_CURRUSER, QUERY_USER } from '../utils/queries';
 import Auth from '../utils/auth';
 
 
 export default function UserPosts() {
 
-	const boldKanit = {
-		fontFamily: `'Kanit', sans-serif`,
-		fontWeight: '400',
-		fontSize: '20px'
-	};
-
 	const { username: userParam } = useParams();
 
 	const { loading, data } = useQuery(
-		userParam ? QUERY_USER : QUERY_CURR_USER, {
+		userParam ? QUERY_USER : QUERY_CURRUSER, {
 		variables: { username: userParam }
 	}
 	);
 
-	const user = data?.me || data?.user || {};
+	const user = data?.currUser || data?.user || {};
 
 	// target current logged in user posts
 	if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-		return <Navigate to='/your-posts' />;
+		return <Navigate to='/user-posts' />;
 	}
 
 	if (loading) {
@@ -41,7 +35,7 @@ export default function UserPosts() {
 		<div className='min-h-screen flex'>
 			<div className='bg-zinc-700 flex-grow'>
 				<div className='container mx-auto p-8 sm-m-10 w-75'>
-					<h2 style={boldKanit} className='text-sky-500 p-1'>
+					<h2 style={{ fontWeight: '400', fontSize: '20px' }} className='text-sky-500 p-1'>
 						Viewing Your Posts
 					</h2>
 

@@ -3,7 +3,7 @@
 .login-page-container {
   height: 100vh;
   display: flex;
-  background-color: #718096;
+  background-color: rgb(75 85 99);
 }
 
 .login-form-container {
@@ -175,4 +175,96 @@
   text-transform: uppercase;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+
+
+/* for NewPost.jsx */
+
+.new-post-text {
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.125rem;
+  display: flex;
+  width: 100%;
+  border-radius: 0.375rem;
+  background-color: rgb(243 244 246);
+  border-color: transparent;
+  height: 10rem;
+  font-weight: 200;
+}
+.new-post-text:focus {
+  outline: none;
+  border-color: rgb(107 114 128);
+  background-color: white;
+}
+
+.new-post-btn {
+  background-color: rgb(14 165 233);
+  font-weight: 200;
+  color: white;
+  border-radius: 0.375rem;
+  justify-self: center;
+  margin: 1rem;
+  width: 6rem;
+  height: 2.5rem;
+}
+.new-post-btn:hover {
+  background-color: rgb(56 189 248);
+}
+.new-post-btn:active {
+  background-color: rgb(2 132 199);
+}
+.new-post-btn:focus {
+  background-color: rgb(2 132 199);
+}
+
+
+
+/* for Home.jsx */
+
+.search-input {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: normal;
+  color: rgb(55 65 81);
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 0.25rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.search-input:focus {
+  color: rgb(55 65 81);
+  background-color: white;
+  border-color: rgb(29 78 216);
+  outline: none;
+}
+
+.search-btn {
+  padding: 0.5rem 1.5rem;
+  border-width: 2px;
+  background-color: rgb(14 165 233);
+  border-color: rgb(2 132 199);
+  color: rgb(39 39 42);
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  margin-left: 0.75rem;
+  height: 3rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.search-btn:hover {
+  background-color: rgb(56 189 248);
+  opacity: 0.8;
+}
+.search-btn:focus {
+  outline: none;
+  background-color: rgb(2 132 199);
 }

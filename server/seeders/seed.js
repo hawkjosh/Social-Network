@@ -4,12 +4,16 @@ const userSeeds = require('./userSeeds.json')
 const postSeeds = require('./postSeeds.json')
 
 db.once('open', async () => {
-  await User.deleteMany({})
-  await Post.deleteMany({})
+  try {
+    await User.deleteMany({})
+    await Post.deleteMany({})
 
-  const users = await User.insertMany(userSeeds)
-	const posts = await Post.insertMany(postSeeds)
+    await User.create(userSeeds)
+    await Post.create(postSeeds)
 
-	console.log('Seeding successful!')
-	process.exit(0)
+    console.log('Seeding successful!')
+    process.exit(0)
+  } catch (err) {
+    throw err
+  }
 })

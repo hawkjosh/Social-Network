@@ -37,7 +37,7 @@ export default function Login() {
   }
 
   return (
-    <figure id='background' className='login-page-container'>
+    <figure className='login-page-container'>
       <img style={{objectFit: 'scale-down'}} src={logo2} alt='SIT Logo' />
 
       <div className='login-form-container'>

@@ -10,12 +10,14 @@ const resolvers = {
         .populate('email')
         .populate('github')
     },
-    user: async (parent, _id) => {
-      return await User.findById(_id).populate('posts')
+    user: async (parent, { userId }) => {
+      return await User.findOne({ _id: userId })
+        .populate('posts')
     },
     currUser: async (parent, args, context) => {
       if (context.user) {
-        return await User.findOne({ _id: context.user._id }).populate('posts')
+        return await User.findOne({ _id: context.user._id })
+          .populate('posts')
       }
       throw new AuthenticationError('You need to be logged in.')
     },
@@ -23,8 +25,8 @@ const resolvers = {
       const params = username ? { username } : {}
       return await Post.find(params)
     },
-    post: async (parent, { _id }) => {
-      return await Post.findById({ _id })
+    post: async (parent, { postId }) => {
+      return await Post.findOne({ _id: postId })
     }
   },
   Mutation: {

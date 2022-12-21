@@ -14,7 +14,7 @@ export default function Register() {
 
   const [formData, setFormData] = useState({ username: '', email: '', password: '', github: '' })
 
-  const [register, { error }] = useMutation(ADD_USER)
+  const [register, { error, data }] = useMutation(ADD_USER)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -23,6 +23,7 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(formData)
 
     try {
       const { data } = await register({ variables: { ...formData }})
@@ -47,6 +48,7 @@ export default function Register() {
           </div>
 
           {Auth.loggedIn() ? (<Navigate to='/home' />) : (
+          // {data ? (<Navigate to='/home' />) : (
             <form onSubmit={handleSubmit}>
               <label>Username:</label>
               <input
@@ -97,6 +99,7 @@ export default function Register() {
           {error && (
             <div className='register-submit-error'>
               Username, email, password, and/or github is invalid.
+              {/* {error.message} */}
             </div>
           )}
 

@@ -27,16 +27,16 @@ export default function Footer() {
 
 	return (
 		<div style={footerContainer}>
-			<a href='https://github.com/catcueto'>
+			<a href='https://github.com/catcueto' target='_blank' rel='noreferrer'>
 				<img style={avatar} src={CatAvatar} alt='Catalina Avatar'/>
 			</a>
-			<a href='https://github.com/ericwittenstein'>
+			<a href='https://github.com/ericwittenstein' target='_blank' rel='noreferrer'>
 				<img style={avatar} src={EricAvatar} alt='Eric Avatar'/>
 			</a>
-			<a href='https://github.com/hawkjosh'>
+			<a href='https://github.com/hawkjosh' target='_blank' rel='noreferrer'>
 				<img style={avatar} src={JoshAvatar} alt='Josh Avatar'/>
 			</a>
-			<a href='https://github.com/howardk97'>
+			<a href='https://github.com/howardk97' target='_blank' rel='noreferrer'>
 				<img style={avatar} src={KimberlyAvatar} alt='Kimberly Avatar'/>
 			</a>
 		</div>
