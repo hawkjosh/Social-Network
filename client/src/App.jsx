@@ -8,7 +8,8 @@ import { setContext } from '@apollo/client/link/context'
 
 import Register from './components/Register'
 import Login from './components/Login'
-import Navbar from './components/Navbar'
+// import Navbar from './components/Navbar'
+import NavbarUpdate from './components/NavbarUpdate'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import NewPost from './components/NewPost'
@@ -41,7 +42,8 @@ export default function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<Navbar />
+				{/* <Navbar /> */}
+				<NavbarUpdate />
 				<Routes>
 					<Route path='/' element={<Login />} />
 					<Route path='/login' element={<Login />} />
