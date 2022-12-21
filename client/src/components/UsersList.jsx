@@ -7,19 +7,16 @@ export default function UsersList({ users, title }) {
   }
 
   return (
-    <div>
-      <h3 style={{fontWeight: '400', fontSize: '20px'}} className='text-green-400'>{title}</h3>
-      <div style={{fontWeight: '300'}} className='flex flex-wrap justify-around my-4 space-x-3 w-72'>
-        {users &&
-          users.map((user) => (
-            <div key={user._id} className='card-header bg-dark text-white p-2 m-1'>
-              {/* <div className='card mb-3'> */}
-                {/* <h4 className='card-header bg-dark text-green-400 p-2 m-0'> */}
-                  {user.username}
-                {/* </h4> */}
-              {/* </div> */}
-            </div>
-          ))}
+    <div className='min-h-screen'>
+      <h3 className='text-2xl font-semibold text-green-400'>
+        {title}
+      </h3>
+      <div className='flex flex-wrap justify-evenly my-4 w-max'>
+        {users && users.map((user, userId) => (
+          <div key={userId} className='font-medium bg-sky-400 rounded-md text-white py-2 px-6 my-2 mx-4'>
+            {user.username}
+          </div>
+        ))}
       </div>
     </div>
   )

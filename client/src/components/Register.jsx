@@ -38,13 +38,13 @@ export default function Register() {
   }
 
   return (
-    <figure className='register-page-container'>
-      <img style={{objectFit: 'scale-down'}} src={logo2} alt='SIT Logo' />
+    <figure className='h-screen flex bg-gray-600'>
+      <img className='object-scale-down' src={logo2} alt='SIT Logo' />
 
-      <div className='register-form-container'>
-        <div style={{margin: '1.5rem'}}>
-          <div className='register-form-title-container'>
-            <h1 className='register-form-title'>Register for an account</h1>
+      <div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default px-1'>
+        <div className='text-primary m-6'>
+          <div className='flex items-center mt-3 justify-center'>
+            <h1 className='text-2xl font-medium text-primary mt-4 mb-2'>Register for an account</h1>
           </div>
 
           {Auth.loggedIn() ? (<Navigate to='/home' />) : (
@@ -57,7 +57,7 @@ export default function Register() {
                 value={formData.username}
                 onChange={handleChange}
                 placeholder='Username'
-                className='register-form-username-input'
+                className='w-full p-2 text-primary border border-gray-600 rounded-md outline-none text-sm transition duration-150 ease-in-out mb-2'
               />
 
               <label>Email:</label>
@@ -67,7 +67,7 @@ export default function Register() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder='Email'
-                className='register-form-email-input'
+                className='w-full p-2 text-primary border border-gray-600 rounded-md outline-none text-sm transition duration-150 ease-in-out mb-2'
               />
 
               <label>Password:</label>
@@ -77,7 +77,7 @@ export default function Register() {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder='Password'
-                className='register-form-password-input'
+                className='w-full p-2 text-primary border border-gray-600 rounded-md outline-none text-sm transition duration-150 ease-in-out mb-2'
               />
 
               <label>GitHub:</label>
@@ -87,17 +87,17 @@ export default function Register() {
                 value={formData.github}
                 onChange={handleChange}
                 placeholder='GitHub (optional)'
-                className='register-form-github-input'
+                className='w-full p-2 text-primary border border-gray-600 rounded-md outline-none text-sm transition duration-150 ease-in-out mb-2'
               />
 
-              <div className='register-btn-container'>
-                <button type='submit' className='register-btn'>Register</button>
+              <div className='flex items-center mt-3 justify-center'>
+                <button type='submit' className='bg-blue-700 hover:bg-blue-500 py-2 px-4 text-md text-white rounded border border-blue focus:outline-none focus:border-black'>Register</button>
               </div>
             </form>
           )}
 
           {error && (
-            <div className='register-submit-error'>
+            <div className='text-xl font-bold text-red-700 text-center uppercase mt-6 mb-2'>
               Username, email, password, and/or github is invalid.
               {/* {error.message} */}
             </div>

@@ -37,25 +37,25 @@ export default function Login() {
   }
 
   return (
-    <figure className='login-page-container'>
-      <img style={{objectFit: 'scale-down'}} src={logo2} alt='SIT Logo' />
+    <figure className='h-screen flex bg-gray-600'>
+      <img className='object-scale-down' src={logo2} alt='SIT Logo' />
 
-      <div className='login-form-container'>
-        <div style={{margin: '1.5rem'}}>
-          <div className='login-form-title-container'>
-            <h1 className='login-form-title'>Login to your account</h1>
+      <div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1'>
+        <div className='text-primary m-6'>
+          <div className='flex items-center mt-3 justify-center'>
+            <h1 className='text-2xl font-medium text-primary mt-4 mb-2'>Login to your account</h1>
           </div>
 
           {Auth.loggedIn() ? (<Navigate to='/home' />) : (
             <form onSubmit={handleSubmit}>
-              <label style={{textAlign: 'left'}}>Email:</label>
+              <label>Email:</label>
               <input
                 name='email'
                 type='text'
                 value={formData.email}
                 onChange={handleChange}
                 placeholder='Email'
-                className='login-form-email-input'
+                className='w-full p-2 text-primary border border-gray-600 rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4'
                 />
 
               <label>Password:</label>
@@ -65,23 +65,23 @@ export default function Login() {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder='Password'
-                className='login-form-password-input'
+                className='w-full p-2 text-primary border border-gray-600 rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4'
                 />
 
-              <div className='login-btn-container'>
-                <button type='submit' className='login-btn'>Login</button>
+              <div className='flex items-center mt-3 justify-center'>
+                <button type='submit' className='bg-blue-700 hover:bg-blue-500 py-2 px-4 text-md text-white rounded border border-blue focus:outline-none focus:border-black'>Login</button>
               </div>
             </form>
           )}
 
           {error && (
-            <div className='login-submit-error'>
+            <div className='text-xl font-bold text-red-700 uppercase mt-6 mb-2'>
               Incorrect username or password
             </div>
           )}
 
-          <div className='register-link-container'>
-            <button className='register-link'>
+          <div className='flex items-center mt-3 justify-center'>
+            <button className='justify-center text-blue-500 hover:underline'>
               <Link to='/register'>Need to register?</Link>
             </button>
           </div>

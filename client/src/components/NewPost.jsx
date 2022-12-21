@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { useMutation } from '@apollo/client'
 
@@ -29,8 +29,11 @@ export default function NewPost() {
 		}
 	})
 
+	const navigate = useNavigate()
+
 	const handleFormSubmit = async (e) => {
 		e.preventDefault()
+		navigate('/home')
 
 		try {
 			await addPost({
@@ -55,16 +58,16 @@ export default function NewPost() {
 	}
 
 	return (
-		<div style={{ display: 'flex', minHeight: '100vh' }}>
-			<div style={{ flexGrow: 1, backgroundColor: 'rgb(63 63 70)' }}>
-				<div style={{ width: '95%', marginLeft: 'auto', marginRight: 'auto', marginTop: '2.5rem', backgroundColor: 'rgb(39 39 42)', borderRadius: '0.75rem', borderWidth: '1px', padding: '2rem' }}>
-					<h1 style={{ fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', color: 'rgb(74 222 128)' }}>
+		<div className='min-h-screen flex'>
+			<div className='bg-zinc-700 flex-grow'>
+				<div className='mx-auto bg-zinc-800 rounded-xl shadow border p-8 sm-m-10 m-10 w-11/12'>
+					<h1 className='text-2xl font-normal text-green-400'>
 						New Post
 					</h1>
 
 					{Auth.loggedIn() ? (
-						<form style={{ marginTop: '2rem' }} onSubmit={handleFormSubmit}>
-							<div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, minmax(0, 1fr))', gap: '1.5rem', height: 'auto' }}>
+						<form className='mt-8' onSubmit={handleFormSubmit}>
+							<div className='grid grid-cols-1 gap-6 h-auto'>
 								<textarea
 									name='postText'
 									type='text'
@@ -72,11 +75,11 @@ export default function NewPost() {
 									value={postText}
 									placeholder='Type your post here'
 									onChange={handleChange}
-									className='new-post-text'
+									className='mt-1 py-1 px-3 flex w-full rounded-md bg-gray-100 border-transparent font-extralight focus:border-gray-500 focus:bg-white focus:ring-0 focus:outline-none h-40'
 								/>
 							</div>
-							<div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, minmax(0, 1fr))', gap: '1.5rem' }}>
-								<button type='submit' className='new-post-btn'>Add Post</button>
+							<div className='grid grid-cols-1 gap-6'>
+								<button type='submit' className='bg-sky-500 font-extralight rounded-md text-white justify-self-center hover:bg-sky-400 active:bg-sky-600 focus:bg-sky-600 focus:outline-none m-4 w-24 sm-w-40 h-10'>Add Post</button>
 							</div>
 						</form>
 					) : (
