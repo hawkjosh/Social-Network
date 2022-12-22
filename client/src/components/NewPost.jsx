@@ -33,7 +33,7 @@ export default function NewPost() {
 
 	const handleFormSubmit = async (e) => {
 		e.preventDefault()
-		navigate('/home')
+		navigate('/dashboard')
 
 		try {
 			await addPost({
@@ -59,8 +59,8 @@ export default function NewPost() {
 
 	return (
 		<div className='min-h-screen flex'>
-			<div className='bg-zinc-700 flex-grow'>
-				<div className='mx-auto bg-zinc-800 rounded-xl shadow border p-8 sm-m-10 m-10 w-11/12'>
+			<div className='bg-gray-600 flex-grow'>
+				<div className='mx-auto bg-gray-800 rounded-xl shadow border p-8 sm-m-10 m-10 w-11/12'>
 					<h1 className='text-2xl font-normal text-green-400'>
 						New Post
 					</h1>
@@ -79,7 +79,7 @@ export default function NewPost() {
 								/>
 							</div>
 							<div className='grid grid-cols-1 gap-6'>
-								<button type='submit' className='bg-sky-500 font-extralight rounded-md text-white justify-self-center hover:bg-sky-400 active:bg-sky-600 focus:bg-sky-600 focus:outline-none m-4 w-24 sm-w-40 h-10'>Add Post</button>
+								<button type='submit' className='bg-green-400 font-normal rounded-md text-gray-800 justify-self-center hover:bg-green-500 hover:text-white active:bg-green-500 focus:bg-green-500 focus:outline-none m-4 w-24 sm-w-40 h-10'>Add Post</button>
 							</div>
 						</form>
 					) : (

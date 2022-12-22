@@ -37,7 +37,7 @@ export default function Login() {
   }
 
   return (
-    <figure className='h-screen flex bg-gray-600'>
+    <figure className='min-h-screen flex bg-gray-600'>
       <img className='object-scale-down' src={logo2} alt='SIT Logo' />
 
       <div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1'>
@@ -46,7 +46,7 @@ export default function Login() {
             <h1 className='text-2xl font-medium text-primary mt-4 mb-2'>Login to your account</h1>
           </div>
 
-          {Auth.loggedIn() ? (<Navigate to='/home' />) : (
+          {Auth.loggedIn() ? (<Navigate to='/dashboard' />) : (
             <form onSubmit={handleSubmit}>
               <label>Email:</label>
               <input

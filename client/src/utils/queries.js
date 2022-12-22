@@ -4,6 +4,8 @@ export const QUERY_USERS = gql`
   query Users {
     users {
       username
+      email
+      github
     }
   }
 `

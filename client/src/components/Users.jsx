@@ -13,12 +13,11 @@ export default function Users() {
 
   return (
     <main>
-      <div className='min-h-screen flex justify-center bg-zinc-700'>
+      <div className='min-h-screen flex justify-center bg-gray-600'>
         <div className='my-3'>
           {loading ? (<div>Loading...</div>) : (
             <UsersList
               users={users}
-              title={`Here's the current list of users...`}
             />
           )}
         </div>

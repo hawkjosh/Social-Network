@@ -8,10 +8,9 @@ import { setContext } from '@apollo/client/link/context'
 
 import Register from './components/Register'
 import Login from './components/Login'
-// import Navbar from './components/Navbar'
-import NavbarUpdate from './components/NavbarUpdate'
+import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Home from './components/Home'
+import Dashboard from './components/Dashboard'
 import NewPost from './components/NewPost'
 import Users from './components/Users.jsx'
 import UserPosts from './components/UserPosts'
@@ -42,13 +41,12 @@ export default function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				{/* <Navbar /> */}
-				<NavbarUpdate />
+				<Navbar />
 				<Routes>
 					<Route path='/' element={<Login />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/register' element={<Register />} />
-					<Route path='/home' element={<Home/>} />
+					<Route path='/dashboard' element={<Dashboard/>} />
 					<Route path='/new-post' element={<NewPost />} />
 					<Route path='/users' element={<Users />} />
 					<Route path='/user-posts' element={<UserPosts />} />

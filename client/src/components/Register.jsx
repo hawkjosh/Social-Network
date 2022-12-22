@@ -38,7 +38,7 @@ export default function Register() {
   }
 
   return (
-    <figure className='h-screen flex bg-gray-600'>
+    <figure className='min-h-screen flex bg-gray-600'>
       <img className='object-scale-down' src={logo2} alt='SIT Logo' />
 
       <div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default px-1'>
@@ -47,8 +47,8 @@ export default function Register() {
             <h1 className='text-2xl font-medium text-primary mt-4 mb-2'>Register for an account</h1>
           </div>
 
-          {Auth.loggedIn() ? (<Navigate to='/home' />) : (
-          // {data ? (<Navigate to='/home' />) : (
+          {Auth.loggedIn() ? (<Navigate to='/dashboard' />) : (
+          // {data ? (<Navigate to='/dashboard' />) : (
             <form onSubmit={handleSubmit}>
               <label>Username:</label>
               <input
